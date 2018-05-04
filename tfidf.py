@@ -145,47 +145,47 @@ class TfidfVectorizer:
 
 
 if __name__ == '__main__':
-    # document_0 = "The sun is shining"
-    # document_1 = "The weather is sweet"
-    # document_2 = "The sun is not shining and the weather is  not sweet"
-    # document_3 = "The sun is shining"
-    #
-    # # making the list of the documents
-    # documents = [document_0, document_1, document_2, document_3]
-    # # making all the documents in lower case bcz basically 'the' and 'The' means same in tfidf
-    # documents = np.array([document.lower() for document in documents])
+    document_0 = "The sun is shining"
+    document_1 = "The weather is sweet"
+    document_2 = "The sun is not shining and the weather is  not sweet"
+    document_3 = "The sun is shining"
+
+    # making the list of the documents
+    documents = [document_0, document_1, document_2, document_3]
+    # making all the documents in lower case bcz basically 'the' and 'The' means same in tfidf
+    documents = np.array([document.lower() for document in documents])
 
     # text document
-    # document_0 = "China has a strong economy that is growing at a rapid pace. However politically it differs greatly from the US Economy."
-    # document_1 = "At last, China seems serious about confronting an endemic problem: domestic violence and corruption."
-    # document_2 = "Japan's prime minister, Shinzo Abe, is working towards healing the aleconomic turmoil in his own country for his view on the future of his people."
-    # document_3 = "Vladimir Putin is working hard to fix the economy in Russia as the Ruble has tumbled."
-    # document_4 = "What's the future of Abenomics? We asked Shinzo Abe for his views"
-    # document_5 = "Obama has eased sanctions on Cuba while accelerating those against the Russian Economy, even as the Ruble's value falls almost daily."
-    # document_6 = "Vladimir Putin is riding a horse while hunting deer. Vladimir Putin always seems so serious about things - even riding horses. Is he crazy?"
+    document_0 = "China has a strong economy that is growing at a rapid pace. However politically it differs greatly from the US Economy."
+    document_1 = "At last, China seems serious about confronting an endemic problem: domestic violence and corruption."
+    document_2 = "Japan's prime minister, Shinzo Abe, is working towards healing the aleconomic turmoil in his own country for his view on the future of his people."
+    document_3 = "Vladimir Putin is working hard to fix the economy in Russia as the Ruble has tumbled."
+    document_4 = "What's the future of Abenomics? We asked Shinzo Abe for his views"
+    document_5 = "Obama has eased sanctions on Cuba while accelerating those against the Russian Economy, even as the Ruble's value falls almost daily."
+    document_6 = "Vladimir Putin is riding a horse while hunting deer. Vladimir Putin always seems so serious about things - even riding horses. Is he crazy?"
+
+
+    documents = [document_0,document_1,document_2,document_3,document_4,document_5,document_6]
+
+    # import pandas as pd
+    # from sklearn.model_selection import train_test_split
+    # from nltk import sent_tokenize
+    #
+    # df = pd.read_csv("data.csv")
+    # print(df.shape)
+    #
+    # y = df.label
+    #
+    # # Drop the `label` column
+    # df.drop("label", axis=1)  # where numbering of news article is done that column is dropped in dataset
+    #
+    # # Make training and test sets
+    # X_train, X_test, y_train, y_test = train_test_split(df['text'], y, test_size=0.99, random_state=53)
+    #
+    # documents = [data for data in X_train]
     #
     #
-    # documents = [document_0,document_1,document_2,document_3,document_4,document_5,document_6]
-
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
-    from nltk import sent_tokenize
-
-    df = pd.read_csv("data.csv")
-    print(df.shape)
-
-    y = df.label
-
-    # Drop the `label` column
-    df.drop("label", axis=1)  # where numbering of news article is done that column is dropped in dataset
-
-    # Make training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(df['text'], y, test_size=0.99, random_state=53)
-
-    documents = [data for data in X_train]
-
-
-
+    #
     documents = np.array([document.lower() for document in documents])
 
     tfidf = TfidfVectorizer(documents)
