@@ -6,8 +6,10 @@ import numpy as np
 import math
 import pickle
 from pathlib import Path
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
  
- 
+
 
 
 class NaiveBayes(object):
@@ -41,8 +43,13 @@ class NaiveBayes(object):
         #class prior probability
         
         
-        self.log_class_priors['true'] = math.log(sum(1 for label in Y if label == 1) / n)
-        self.log_class_priors['fake'] =math.log(sum(1 for label in Y if label == 0)/n)
+        self.log_class_priors['true'] = (sum(1 for label in Y if label == 0) / n)
+        self.log_class_priors['fake'] =(sum(1 for label in Y if label == 1)/n)
+        
+        
+        print(self.log_class_priors['true'])
+        print( self.log_class_priors['fake'])
+        
         
         self.words_count['true'] = {}
         self.words_count['fake'] = {}
@@ -50,7 +57,7 @@ class NaiveBayes(object):
         
         for x,y in zip(X,Y):
             
-            c = 'true' if y == 1 else 'fake'
+            c = 'true' if y == 0 else 'fake'
             
             counts = self.get_word_counts(word_tokenize(str(x)))
             
@@ -71,12 +78,12 @@ class NaiveBayes(object):
             pickle.dump(self.vocabulary,fp,protocol = pickle.HIGHEST_PROTOCOL)
             
         with open ('./prior.pickle','wb') as fp:
-            print("writing to prior.pickle")
+            print("writing to voc.pickle")
             pickle.dump(self.log_class_priors,fp,protocol = pickle.HIGHEST_PROTOCOL)
         
         
         with open ('./count.pickle','wb') as fp:
-            print("writing to count.pickle")
+            print("writing to voc.pickle")
             pickle.dump(self.words_count,fp,protocol = pickle.HIGHEST_PROTOCOL)
         
         
@@ -89,7 +96,7 @@ class NaiveBayes(object):
         for x in X:
             counts = self.get_word_counts(word_tokenize(str(x)))
         
-            print(counts)
+        
             fake_prob = 0
             true_prob = 0
         
@@ -97,31 +104,21 @@ class NaiveBayes(object):
                 if word not in self.vocabulary:
                     continue
                 
+                
                 log_word_given_true = math.log((self.words_count['true'].get(word,0.0)+1)/((sum(self.words_count['true'].values())) +len(self.vocabulary)))
                 log_word_given_false = math.log((self.words_count['fake'].get(word,0.0)+1)/((sum(self.words_count['fake'].values())) +len(self.vocabulary)))
                 
-                
                 fake_prob +=log_word_given_false
                 true_prob +=log_word_given_true
-                
-                
             
-            print(self.log_class_priors['fake'])
             fake_prob += self.log_class_priors['fake']
             true_prob += self.log_class_priors['true']
             
-            print("false ")
-            print(fake_prob)
-            print("true ")
-            print(true_prob)
-                
             
-            print(fake_prob)
-            print(true_prob)
             if true_prob > fake_prob:
-                result.append(1)
-            else:
                 result.append(0)
+            else:
+                result.append(1)
             
             
         print (result)
@@ -135,7 +132,7 @@ if __name__ == '__main__':
     df = pd.read_csv("../input/train.csv")
     print(df.shape)
     
-    df = df.head(200)
+    df = df[3000:6000]
     
     
     
@@ -151,20 +148,16 @@ if __name__ == '__main__':
     nb = NaiveBayes()
     nb.fit(X_train,Y_train)
     pred = nb.predict(x_test)
-    type(pred)
-    type(y_test)
+    print(y_test)
+    print(pred)
     
     y_test = y_test.values.tolist()
     accuracy = sum(1 for i in range(len(pred)) if pred[i] == y_test[i]) / float(len(pred))
     print("{0:.4f}".format(accuracy))
-    y_pred = pred
-    print(pred)
-    print(y_test)
-    if(y_test== pred):
-        print("both are equal")
     
-    from sklearn.metrics import confusion_matrix
-    import matplotlib.pyplot as plt
+    
+    
+    
     cm = confusion_matrix(y_test,y_pred)
     print(cm)
     plt.clf()
@@ -184,7 +177,7 @@ if __name__ == '__main__':
             plt.text(j,i,str(s[i][j]) +" = " +str(cm[i][j]))
 
     plt.show()
-
+    
     
     
     
