@@ -1,0 +1,57 @@
+Input : aggressive parameter C > 0
+
+initialize w1 = (0,0 ....0)
+
+predict yt = sign(wt . xt)
+
+for t = 1,2, ....
+
+  receive instance xt belongs to rn
+
+  receive correct label
+  yt belongs to {1,-1}
+
+  suffer loss
+  lt = max{0, 1-yt . wt. xt}
+
+update
+
+1. set tow =(lt/mod(xt)^2)
+
+
+
+update weight
+w(t+1) = w(t)+ tow .yt . xt
+
+
+
+
+
+_________________________________
+
+
+---------------------------------
+
+
+# Set the y=0 labels to -1
+Y_train[Y_train==0] = -1
+Y_test[Y_test==0] = -1
+
+C = 0.01
+w = np.zeros((nb_features, 1))
+
+# Implement a Passive Aggressive Classification
+for i in range(X_train.shape[0]):
+    xi = X_train[i].reshape((nb_features, 1))
+
+    loss = max(0, 1 - (Y_train[i] * np.dot(w.T, xi)))
+    tau = loss / (np.power(np.linalg.norm(xi, ord=2), 2) + (1 / (2*C)))
+    
+    coeff = tau * Y_train[i]
+    w += coeff * xi
+
+# Compute accuracy
+Y_pred = np.sign(np.dot(w.T, X_test.T))
+c = np.count_nonzero(Y_pred - Y_test)
+
+print('PA accuracy: {}'.format(1 - float(c) / X_test.shape[0]))
