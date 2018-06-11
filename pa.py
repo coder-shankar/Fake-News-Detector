@@ -1,7 +1,7 @@
 #this is implementation of passive aggressive classsifier
 import numpy as np
 from tfidf import TfidfVectorizer
-import pandas as  pd;
+import pandas as  pd
 from sklearn.model_selection import train_test_split
 
 
@@ -11,22 +11,24 @@ from sklearn.model_selection import train_test_split
 
 def main():
 
+    # data preparation part
+
     df = pd.read_csv("./data/Train.csv")
-    print(df.shape)
+    df = df.head(2)
 
-    df = df.head(3)
-    //tfidf of total training and testing data set
+    tf = TfidfVectorizer(df['text'])
+    tfMatrix = tf.fit()
+    df['text'] = tfMatrix
 
-
-
-    dataFrame = pd.DataFrame(index= , columns= )
-
+    features = len(tfMatrix[0])
 
 
 
 
     # Make training and test sets
     X_train, x_test, Y_train, y_test = train_test_split(df['text'],df['label'],test_size=0.5)
+
+
 
 
 
@@ -38,58 +40,58 @@ def main():
 
 
 
-    tf = TfidfVectorizer(X_train)
-    tfMatrix = tf.fit()
-    tfMatrix = np.asmatrix(tfMatrix)
-    print(tfMatrix)
-    features = tfMatrix.shape[1]
 
-
-
-
-    print (tfMatrix.shape)
 
     C = 0.001
     w = np.zeros((features,1))
-    print (w)
-
-
-    for i in range(tfMatrix.shape[0]):
-         print( "value of i is "+ str(i))
-         xi = tfMatrix[i].reshape((features,1))
 
 
 
-         label = Y_train[i]
-         val  = 1 - (label * (np.dot(w.T,xi)))
-         print(type(val))
+# training part
+
+    for i in range(len(X_train)):
+
+         xi = np.asmatrix(X_train.iloc[i]).reshape(features,1)
+
+         val  = 1 - (Y_train[i] * (np.dot(w.T,xi)))
 
 
 
-         loss = max(0, val)
-         print(loss)
+         loss = max(0, val[0])
+
+
+
 
 
          denom = sum(x*x for x in xi) +(1/(2*C))
          tau = loss/denom
 
-         print (tau)
-
-         coefficient = tau * label
-         print(coefficient)
-         w += int(coefficient) *xi
 
 
+         coefficient = float(tau * Y_train[i])
+         w += coefficient *xi
+         print(w.shape)
+
+
+# prediction part
+
+    c =0
+    for i in range(len(x_test)):
+        xi = np.asmatrix(X_train.iloc[i]).reshape(features,1)
+        pred = np.sign(np.dot(w.T,xi))
+        if(pred - y_test[i]==0):
+            c += 1;
 
 
 
-    tf = TfidfVectorizer(x_test)
-    tfMatrix = tf.fit()
 
-    # tfMatrix = np.asmatrix(tfMatrix)
-    pred = np.sign(np.dot(w,x_test.T))
-    c = np.count_nonzero(pred - y_test)
-    print('PA accuracy: {}'.format(1 - float(c) / x_test.shape[0]))
+    acc = c/len(y_test)
+    print(acc)
+
+
+
+
+
 
 
 

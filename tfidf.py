@@ -67,6 +67,8 @@ class TfidfVectorizer:
     # that means making unit vector
     # we know the formula for unit vector V =(a,b,c)
     # v/square root of (a^2 +b^2 + c^2)
+
+
     @staticmethod
     def normalization(vec):
         denom = np.sum([e1 ** 2 for e1 in vec])
