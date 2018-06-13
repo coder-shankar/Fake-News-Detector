@@ -1,4 +1,4 @@
-''' this is the module to compute terf frequency inverse document frequency '''
+''' this is the module to compute term frequency inverse document frequency '''
 
 import math
 import numpy as np;

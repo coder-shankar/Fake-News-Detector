@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="664fdec7-ac6d-42b4-93b5-1bbab43bbc5a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/pa-final.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tfidf_final.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pa.py" beforeDir="false" afterPath="$PROJECT_DIR$/pa.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tfidf.py" beforeDir="false" afterPath="$PROJECT_DIR$/tfidf.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +30,7 @@
       <file leaf-file-name="pa-final.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pa-final.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
+            <state relative-caret-position="1043">
               <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
               <folding>
                 <element signature="e#5#23#0" expanded="true" />
@@ -44,8 +42,23 @@
       <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tfidf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="95" column="11" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
+            <state relative-caret-position="187">
+              <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+              <folding>
+                <element signature="e#81#92#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tfidf_final.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tfidf_final.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+              <folding>
+                <element signature="e#2#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,6 +73,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="shankar &lt;coder.shankar@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -74,6 +92,7 @@
         <option value="$PROJECT_DIR$/pa.py" />
         <option value="$PROJECT_DIR$/pa-final.py" />
         <option value="$PROJECT_DIR$/tfidf.py" />
+        <option value="$PROJECT_DIR$/tfidf_final.py" />
       </list>
     </option>
   </component>
@@ -119,7 +138,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pa-final">
+  <component name="RunManager" selected="Python.tfidf_final">
     <configuration name="naive" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -174,18 +193,37 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="tfidf_final" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tfidf_final.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.pa" />
       <item itemvalue="Python.naive" />
       <item itemvalue="Python.pa-final" />
+      <item itemvalue="Python.tfidf_final" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tfidf_final" />
         <item itemvalue="Python.pa-final" />
         <item itemvalue="Python.pa" />
         <item itemvalue="Python.naive" />
         <item itemvalue="Python.pa" />
-        <item itemvalue="Python.naive" />
       </list>
     </recent_temporary>
   </component>
@@ -193,13 +231,12 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1366" height="743" extended-state="7" />
-    <editor active="true" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17274758" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17274758" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32761312" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32917318" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32917318" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917318" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -214,6 +251,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pa final model" />
+    <option name="LAST_COMMIT_MESSAGE" value="pa final model" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pa.py">
@@ -230,6 +271,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2660">
           <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="e#81#92#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -286,7 +330,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pa-final.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
+        <state relative-caret-position="1043">
           <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
           <folding>
             <element signature="e#5#23#0" expanded="true" />
@@ -294,10 +338,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tfidf_final.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <element signature="e#2#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tfidf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="95" column="11" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
+        <state relative-caret-position="187">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="e#81#92#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
