@@ -40,9 +40,8 @@ class NaiveBayes(object):
 
 
         n = len(X)
+
         #class prior probability
-
-
         self.log_class_priors['true'] = (sum(1 for label in Y if label == 0) / n)
         self.log_class_priors['fake'] =(sum(1 for label in Y if label == 1)/n)
 
@@ -132,7 +131,7 @@ if __name__ == '__main__':
     df = pd.read_csv("./data/Train.csv")
     print(df.shape)
 
-    df = df.head(100)
+    df = df.head(10)
 
 
 

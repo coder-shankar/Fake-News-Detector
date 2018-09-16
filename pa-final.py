@@ -42,17 +42,14 @@ class Passive:
         for i in range(len(x_test)):
             xi = np.asmatrix(X_train.iloc[i]).reshape(features,1)
             pred = np.sign(np.dot(self.w.T,xi))
+            print(y_test)
             if(pred - y_test[i]==0):
                 count  += 1
 
 
 
-
         acc = count/len(y_test)
         print(acc)
-
-
-
 
 
 

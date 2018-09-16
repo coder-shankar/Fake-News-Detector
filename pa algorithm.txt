@@ -46,7 +46,7 @@ for i in range(X_train.shape[0]):
 
     loss = max(0, 1 - (Y_train[i] * np.dot(w.T, xi)))
     tau = loss / (np.power(np.linalg.norm(xi, ord=2), 2) + (1 / (2*C)))
-    
+
     coeff = tau * Y_train[i]
     w += coeff * xi
 
